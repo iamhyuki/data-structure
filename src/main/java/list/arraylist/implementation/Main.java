@@ -20,7 +20,7 @@ public class Main {
 		numbers.addFirst(5);
 
 		// 데이터 삭제
-		numbers.remove(1);
+		numbers.remove(2);
 
 		// 처음, 마지막 데이터 삭제
 		numbers.removeFirst();
@@ -40,10 +40,33 @@ public class Main {
 		System.out.println(numbers);
 
 		// 반복
-		for (int i = 0; i < numbers.size(); i++) {
-			System.out.println(numbers.get(i));
+//		for (int i = 0; i < numbers.size(); i++) {
+//			System.out.println(numbers.get(i));
+//		}
+	
+		
+		ArrayList.ListIterator it = numbers.listIterator();
+		
+		// 반복은 아래와 같이 사용하는 것이 더 좋은 방법 -> 이유는 LinkedList에서 살펴볼 예정
+//		while(it.hasNext()) {
+//			int value = (int) it.next();
+//			System.out.println(value);
+//		}
+		
+		while(it.hasNext()) {
+			System.out.println(it.next());
+		}
+		while(it.hasPrevious()) {
+			System.out.println(it.previous());
 		}
 		
-		// 아래와 같이 사용하는 것이 더 좋은 방법 -> 이유는 LinkedList에서 살펴볼 예정
+		while(it.hasNext()) {
+			int number = (int) it.next();
+			if(number == 20) {
+				it.add(25);
+			}
+		}
+		System.out.println(numbers);
+		
 	}
 }

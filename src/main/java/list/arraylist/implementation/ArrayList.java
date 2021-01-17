@@ -95,7 +95,50 @@ public class ArrayList {
 		return -1;
 	}
 	
-	// 반복
+	/**
+	 * 반복
+	 * */
+	public ListIterator listIterator() {
+		return new ListIterator();
+	}
 	
+
+	public class ListIterator {
+		
+		// 현재 탐색하고 있는 순서를 가르키는 인덱스 값
+		private int nextIndex = 0;
+		
+		// next 메소드를 호출할 수 있는지를 체크한다.
+		public boolean hasNext() {
+			// nextIndex가 엘리먼트의 숫자보다 적다면 next를 이용해서 탐색할 엘리먼트가 존재하는 것이기 때문에 true를 리턴
+			return nextIndex < size();
+		}
+		public Object next() {
+			// nextIndex에 해당하는 엘리먼트를 리턴하고 nextIndex의 값을 1 증가시킨다.
+			return elementData[nextIndex++];
+		}
+		
+		// previous 메소드를 호출해도 되는지를 체크
+		public boolean hasPrevious() {
+			// nextIndex가 0보다 크다면 이전 엘리먼트가 존재한다는 의미
+			return nextIndex > 0;
+		}
+		
+		// 순차적으로 이전 노드를 리턴
+		public Object previous() {
+			// 이전 엘리먼트를 리턴하고 nextIndex의 값을 1감소한다.
+			return elementData[--nextIndex];
+		}
+		
+		// 현재 엘리먼트를 추가
+		public void add(Object element) {
+			ArrayList.this.add(nextIndex++, element);
+		}
+		
+		// 현재 엘리먼트를 삭제
+		public void remove() {
+			ArrayList.this.remove(nextIndex-1);
+		}
+	}
 
 }

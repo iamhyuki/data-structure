@@ -38,7 +38,7 @@ public class Main {
 		while(it.hasNext()) {
 			System.out.println(it.next());
 		}
-		
+
 		// 데이터 반복 - 순회 삭제
 		it = numbers.iterator();
 		while(it.hasNext()) {
