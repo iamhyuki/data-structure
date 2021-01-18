@@ -60,10 +60,12 @@ public class Main {
 			System.out.println(it.previous());
 		}
 		
+		
 		while(it.hasNext()) {
 			int number = (int) it.next();
 			if(number == 20) {
 				it.add(25);
+//				it.remove();
 			}
 		}
 		System.out.println(numbers);

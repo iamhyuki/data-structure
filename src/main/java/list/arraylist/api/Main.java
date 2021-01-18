@@ -6,7 +6,6 @@ import java.util.Iterator;
 /**
  * ArrayList
  * 
- * 
  * 데이터 삽입 : 데이터가 삽입되면서 데이터가 뒤로 밀리게 된다.
  * 데이터 삭제 : 데이터가 삭제되면서 데이터가 앞으로 당겨진다.
  * 
@@ -21,7 +20,7 @@ public class Main {
 		// 데이터 추가 : 단순히 배열에 더해지는 것이기 때문에 빠르게 동작한다.
 		numbers.add(10);
 		numbers.add(20);
-		numbers.add(40);
+		numbers.add(30);
 		numbers.add(40);
 		
 		// 데이터 특정 위치에 추가 : 특정 위치에 추가, add 인덱스에 인자 추가

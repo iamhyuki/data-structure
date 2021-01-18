@@ -96,7 +96,7 @@ public class ArrayList {
 	}
 	
 	/**
-	 * 반복
+	 * 반복자 구현
 	 * */
 	public ListIterator listIterator() {
 		return new ListIterator();
@@ -115,6 +115,11 @@ public class ArrayList {
 		}
 		public Object next() {
 			// nextIndex에 해당하는 엘리먼트를 리턴하고 nextIndex의 값을 1 증가시킨다.
+//			Object returnData = elementData[nextIndex];
+//			nextIndex++;
+//			return returnData;
+			
+			// 아래처럼 축약해서 사용
 			return elementData[nextIndex++];
 		}
 		

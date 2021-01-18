@@ -11,6 +11,7 @@ public class Array {
 		numbers1[0] = 10;
 		numbers1[1] = 20;
 		numbers1[2] = 30;
+		numbers1[3] = 30;
 		
 		/**
 		 *  배열 number1[0]에서 숫자 0은 배열의 인덱스를 가리킨다. 즉 numbers1[0] = 10; 은
