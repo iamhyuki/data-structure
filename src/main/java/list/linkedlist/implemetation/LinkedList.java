@@ -1,5 +1,15 @@
 package list.linkedlist.implemetation;
 
+/**
+ * LinkedList
+ * 
+ * 특징 : 각각의 엘리먼트들이 흩어져 있으며 연결되어 있다.
+ * 		 각각의 노드들은 데이터와 다음노드를 가르키는 참조값으로 이뤄져있다.
+ * 
+ * 장점 : 추가(삭제) 시 node의 위치의 이전, 이후 노드의 참조값만 변경하면 되기에 속도가 빠르다.
+ * 단점 : 데이터 조회 시, 모든 요소를 탐색해야 한다.
+ * 
+ * */
 public class LinkedList {
 	// 첫번째 노드 head , 마지막 노드 tail
 	private Node head;
