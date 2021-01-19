@@ -3,13 +3,12 @@ package list.linkedlist.implemetation;
 /**
  * LinkedList
  * 
- * 특징 : 각각의 엘리먼트들이 흩어져 있으며 연결되어 있다.
- * 		 각각의 노드들은 데이터와 다음노드를 가르키는 참조값으로 이뤄져있다.
+ * 특징 : 각각의 엘리먼트들이 흩어져 있으며 연결되어 있다. 각각의 노드들은 데이터와 다음노드를 가르키는 참조값으로 이뤄져있다.
  * 
- * 장점 : 추가(삭제) 시 node의 위치의 이전, 이후 노드의 참조값만 변경하면 되기에 속도가 빠르다.
- * 단점 : 데이터 조회 시, 모든 요소를 탐색해야 한다.
+ * 장점 : 추가(삭제) 시 node의 위치의 이전, 이후 노드의 참조값만 변경하면 되기에 속도가 빠르다. 단점 : 데이터 조회 시, 모든
+ * 요소를 탐색해야 한다.
  * 
- * */
+ */
 public class LinkedList {
 	// 첫번째 노드 head , 마지막 노드 tail
 	private Node head;
@@ -138,11 +137,12 @@ public class LinkedList {
 			return returnData;
 		}
 	}
+
 	// tail 값만 삭제하면 되는 것 아닐까? but, tail의 이전 노드의 next 값을 지워줘야 한다.
 	public Object removeLast() {
 		return remove(size - 1);
 	}
-	
+
 	public int size() {
 		return size;
 	}
@@ -156,14 +156,66 @@ public class LinkedList {
 		Node temp = head;
 		// 탐색 대상이 몇번째 엘리먼트에 있는지 의미하는 변수 index
 		int index = 0;
-		while(temp.data != data) {
+		while (temp.data != data) {
 			temp = temp.next;
 			index++;
 			// 탐색 대상이 없을 경우 -1 반환
-			if(temp == null) {
+			if (temp == null) {
 				return -1;
 			}
 		}
 		return index;
+	}
+
+	public ListIterator listIterator() {
+		return new ListIterator();
+	}
+
+	public class ListIterator {
+		private Node next;
+		private Node lastReturned;
+		private int nextIndex;
+
+		public ListIterator() {
+			next = head;
+		}
+
+		public Object next() {
+			lastReturned = next;
+			next = next.next;
+			nextIndex++;
+			return lastReturned.data;
+		}
+
+		public boolean hasNext() {
+			return nextIndex < size();
+		}
+
+		public void add(Object input) {
+			Node newNode = new Node(input);
+
+			if (lastReturned == null) {
+				head = newNode;
+				newNode.next = next;
+			} else if (nextIndex == size) {
+				tail = newNode;
+				lastReturned.next = newNode;
+			} else {
+				lastReturned.next = newNode;
+				newNode.next = next;
+			}
+
+			lastReturned = newNode;
+			nextIndex++;
+			size++;
+		}
+
+		public void remove() {
+			if (nextIndex == 0) {
+				throw new IllegalStateException();
+			}
+			LinkedList.this.remove(nextIndex - 1);
+			nextIndex--;
+		}
 	}
 }
