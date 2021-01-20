@@ -126,7 +126,7 @@ public class LinkedList {
 			return removeFirst();
 		} else {
 			Node temp = node(k - 1);
-			Node todoDeleted = node(k);
+			Node todoDeleted = temp.next;
 			Object returnData = todoDeleted.data;
 			temp.next = todoDeleted.next;
 			if (todoDeleted == tail) {
