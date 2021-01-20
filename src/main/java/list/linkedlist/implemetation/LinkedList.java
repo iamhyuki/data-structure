@@ -55,8 +55,8 @@ public class LinkedList {
 			tail.next = newNode;
 			// 마지막 노드를 생성한 노드로 지정(갱신)
 			tail = newNode;
+			size++;
 		}
-		size++;
 	}
 
 	public void add(int k, Object input) {
