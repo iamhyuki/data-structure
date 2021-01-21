@@ -15,8 +15,6 @@ public class Main {
 		System.out.println(it.next());
 		System.out.println(it.next());
 		
-		
-		
 		System.out.println("-------------------------");
 		System.out.println(dl);
 	}
