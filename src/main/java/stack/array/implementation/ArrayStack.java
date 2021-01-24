@@ -15,11 +15,10 @@ interface Stack {
 }
 
 /**
- * Stack
+ * ArrayStack 배열로 스택을 구현해보았다!
  * 
  * 특징 : LIFO (LastIn FirstOut)
  * 
- * 배열로 스택을 구현해보았다!
  */
 public class ArrayStack implements Stack {
 
